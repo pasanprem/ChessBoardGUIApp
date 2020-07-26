@@ -49,14 +49,46 @@ namespace ChessBoardGUIApp
 
                     panel1.Controls.Add(btnGrid[i, j]);
 
+                    //set the location of the new button
                     btnGrid[i, j].Location = new Point(i * buttonSize, j * buttonSize);
+
+                    btnGrid[i, j].Text = i + "|" + j;
+                    btnGrid[i, j].Tag = new Point(i, j);
                 }
             }
         }
 
         private void Grid_Button_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            // get the row and col number of button click
+            Button clickedButton = (Button) sender;
+            Point location = (Point) clickedButton.Tag;
+
+            int x = location.X;
+            int y = location.Y;
+
+            Cell currentCell = myBoard.theGrid[x, y];
+
+            //determine the legal next move
+            myBoard.MarkNextLegalMoves(currentCell, comboBox1.Text);
+
+            //update the text on button
+            for (int i = 0; i < myBoard.Size; i++)
+            {
+                for (int j = 0; j < myBoard.Size; j++)
+                {
+                    btnGrid[i, j].Text = "";
+                    if (myBoard.theGrid[i, j].LegalNextMove == true)
+                    {
+                        btnGrid[i, j].Text = "Legal";
+                        //btnGrid[i, j].col
+                    }
+                    else if (myBoard.theGrid[i, j].CurrentlyOccupied == true)
+                    {
+                        btnGrid[i, j].Text = comboBox1.Text;
+                    }
+                }
+            }
         }
     }
 }

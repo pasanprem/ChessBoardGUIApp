@@ -44,6 +44,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Bishop",
@@ -51,9 +52,9 @@
             "Knight",
             "King",
             "Queen"});
-            this.comboBox1.Location = new System.Drawing.Point(295, 13);
+            this.comboBox1.Location = new System.Drawing.Point(382, 13);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(232, 24);
+            this.comboBox1.Size = new System.Drawing.Size(134, 24);
             this.comboBox1.TabIndex = 1;
             // 
             // panel1
@@ -67,7 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 561);
+            this.ClientSize = new System.Drawing.Size(542, 559);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
